@@ -3,6 +3,15 @@
 @section('title', 'Crear usuario')
 
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     {!! Form::open(['route' => 'users.store']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Nombre') !!}
