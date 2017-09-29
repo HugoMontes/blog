@@ -10,7 +10,18 @@
     @include('admin.template.partials.nav')
 
     <div class="container">
-        @yield('content')
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong class="text-uppercase">@yield('title', 'Blog')</strong>
+            </div>
+
+            <div class="panel-body">
+                @include('flash::message')
+                @yield('content')
+            </div>
+        </div>
+
+        <div class="panel-footer">Todos los derechos reservados © 2017</div>
     </div>
 
     <script src="{{ asset('js/app.js') }}"></script>
