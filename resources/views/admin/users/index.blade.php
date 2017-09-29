@@ -27,8 +27,8 @@
                         @endif
                     </td>
                     <td>
-                        <a href="" class="btn btn-primary btn-xs pull-left">Editar</a>
-                        {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                        <a href="{{ route('users.edit', $user) }}" class="btn btn-primary btn-xs pull-left">Editar</a>
+                        {!! Form::open(['route' => ['users.destroy', $user], 'method' => 'DELETE']) !!}
                             {!! Form::submit('Eliminar', ['class' => 'btn btn-danger btn-xs',
                                 'style' => 'margin-left: 1em', 'onClick' => "return confirm('¿Estas seguro de eliminar al usuario?')"]) !!}
                         {!! Form::close() !!}

@@ -12,7 +12,7 @@
     <div class="container">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <strong class="text-uppercase">@yield('title', 'Blog')</strong>
+                <strong>@yield('title', 'Blog')</strong>
             </div>
 
             <div class="panel-body">
