@@ -3,9 +3,9 @@
 @section('title', 'Lista de usuarios')
 
 @section('content')
-    <a href="{{ route('users.create') }}" class="btn btn-info" style="margin-bottom:1em">Registrar nuevo usuario</a>
+    <a href="{{ route('users.create') }}" class="btn btn-success" style="margin-bottom:1em">Nuevo usuario</a>
 
-    <table class="table table-bordered">
+    <table class="table">
         <thead>
             <th>Id</th>
             <th>Nombre</th>
@@ -21,14 +21,17 @@
                     <td>{{ $user->email }}</td>
                     <td>
                         @if ($user->type == 'admin')
-                            <span class="label label-danger">{{ $user->type }}</span>
+                            <strong>{{ $user->type }}
                         @else
-                            <span class="label label-primary">{{ $user->type }}</span>
+                            {{ $user->type }}
                         @endif
                     </td>
                     <td>
-                        <a href="" class="btn btn-danger"></a>
-                        <a href="" class="btn btn-warning"></a>
+                        <a href="" class="btn btn-primary btn-xs pull-left">Editar</a>
+                        {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('Eliminar', ['class' => 'btn btn-danger btn-xs',
+                                'style' => 'margin-left: 1em', 'onClick' => "return confirm('¿Estas seguro de eliminar al usuario?')"]) !!}
+                        {!! Form::close() !!}
                     </td>
                 </tr>
             @endforeach

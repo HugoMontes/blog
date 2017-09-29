@@ -23,7 +23,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        flash("Se ha registrado a $user->name de forma correcta")->success();
+        flash("El usuario $user->name ha sido creado de forma exitosa.")->success()->important();
 
         return redirect()->route('users.index');
     }
@@ -43,8 +43,12 @@ class UserController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        flash("El usuario $user->name ha sido eliminado de forma exitosa.")->success()->important();
+
+        return redirect()->route('users.index');
     }
 }
