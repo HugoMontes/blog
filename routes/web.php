@@ -2,10 +2,15 @@
 
 Route::get('/', function () {
     return view('welcome');
-    // return __('auth.failed');
 });
 
-Route::prefix('admin')->group(function () {
-    Route::resource('users', 'UserController', ['except' => 'show']);
-    Route::resource('categories', 'CategoryController', ['except' => 'show']);
+Route::middleware('auth')->group(function () {
+    Route::prefix('admin')->group(function () {
+        Route::resource('users', 'UserController', ['except' => 'show']);
+        Route::resource('categories', 'CategoryController', ['except' => 'show']);
+    });
 });
+
+Auth::routes();
+
+Route::get('/admin', 'HomeController@index')->name('home');
