@@ -2,6 +2,7 @@
 
 Route::get('/', function () {
     return view('welcome');
+    // return __('auth.failed');
 });
 
 Route::prefix('admin')->group(function () {

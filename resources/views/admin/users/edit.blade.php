@@ -3,7 +3,7 @@
 @section('title', 'Editar usuario: ' . $user->name)
 
 @section('content')
-    {!! Form::open(['route' => ['users.update', $user], 'method' => 'PUT']) !!}
+    {!! Form::open(['route' => ['users.update', $user], 'method' => 'PUT', 'autocomplete' => 'off']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Nombre') !!}
             {!! Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Nombre', 'required']) !!}

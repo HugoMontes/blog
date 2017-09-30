@@ -3,7 +3,7 @@
 @section('title', 'Editar categoría')
 
 @section('content')
-    {!! Form::open(['route' => ['categories.update', $category], 'method' => 'PUT']) !!}
+    {!! Form::open(['route' => ['categories.update', $category], 'method' => 'PUT', 'autocomplete' => 'off']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Nombre') !!}
             {!! Form::text('name', $category->name, ['class' => 'form-control',

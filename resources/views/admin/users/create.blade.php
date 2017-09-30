@@ -3,7 +3,7 @@
 @section('title', 'Crear usuario')
 
 @section('content')
-    {!! Form::open(['route' => 'users.store']) !!}
+    {!! Form::open(['route' => 'users.store', 'autocomplete' => 'off']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Nombre') !!}
             {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre', 'required']) !!}
