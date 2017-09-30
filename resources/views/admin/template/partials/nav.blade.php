@@ -5,7 +5,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="{{ route('users.index') }}">Usuarios</a></li>
-                <li><a href="#">Categorías</a></li>
+                <li><a href="{{ route('categories.index') }}">Categorías</a></li>
                 <li><a href="#">Artículos</a></li>
                 <li><a href="#">Imágenes</a></li>
                 <li><a href="#">Tags</a></li>

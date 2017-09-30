@@ -26,7 +26,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        flash("El usuario $user->name ha sido creado de forma exitosa.")->success()->important();
+        flash("El usuario $user->name ha sido creado con éxito.")->success()->important();
 
         return redirect()->route('users.index');
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
         $user->fill($request->all());
         $user->save();
 
-        flash("Los datos del usuario $user->name han sido actualizados de forma exitosa.")->success()->important();
+        flash("Los datos del usuario se actualizaron con éxito.")->success()->important();
 
         return redirect()->route('users.index');
     }
@@ -50,7 +50,7 @@ class UserController extends Controller
     {
         $user->delete();
 
-        flash("El usuario $user->name ha sido eliminado de forma exitosa.")->success()->important();
+        flash("El usuario $user->name ha sido eliminado con éxito.")->success()->important();
 
         return redirect()->route('users.index');
     }

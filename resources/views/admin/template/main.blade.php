@@ -10,13 +10,14 @@
     @include('admin.template.partials.nav')
 
     <div class="container">
-        <div class="panel panel-primary">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 <strong>@yield('title', 'Blog')</strong>
             </div>
 
             <div class="panel-body">
                 @include('flash::message')
+                @include('admin.template.partials.errors')
                 @yield('content')
             </div>
         </div>
