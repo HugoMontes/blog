@@ -24,7 +24,7 @@
 
         <div class="form-group">
             {!! Form::label('tags', 'Tags') !!}
-            {!! Form::select('tags', $tags, null, ['class' => 'form-control', 'multiple', 'required']) !!}
+            {!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple', 'required']) !!}
         </div>
 
         <div class="form-group">
@@ -32,6 +32,6 @@
             {!! Form::file('image') !!}
         </div>
 
-        {!! Form::submit('Agrear artículo', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Agregar artículo', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
 @endsection
