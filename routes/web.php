@@ -9,6 +9,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('users', 'UserController', ['except' => 'show']);
         Route::resource('categories', 'CategoryController', ['except' => 'show']);
         Route::resource('tags', 'TagController', ['except' => 'show']);
+        Route::resource('articles', 'ArticlesController', ['except' => 'show']);
     });
 });
 
