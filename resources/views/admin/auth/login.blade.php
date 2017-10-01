@@ -1,8 +1,6 @@
 @extends('admin.template.main')
 
-@section('title')
-    Login
-@endsection
+@section('title', 'Login')
 
 @section('content')
     <div class="panel-body">

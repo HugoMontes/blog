@@ -31,7 +31,7 @@
 
                         {!! Form::open(['route' => ['users.destroy', $user], 'method' => 'DELETE']) !!}
                             {!! Form::submit('Eliminar', ['class' => 'btn btn-danger btn-xs', 'style' => 'margin-left: 1em',
-                                'onClick' => "return confirm('¿Estas seguro de eliminar al usuario?')"]) !!}
+                                'onClick' => "return confirm('¿Estas seguro de eliminar al usuario {$user->name}?')"]) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>

@@ -8,6 +8,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::resource('users', 'UserController', ['except' => 'show']);
         Route::resource('categories', 'CategoryController', ['except' => 'show']);
+        Route::resource('tags', 'TagController', ['except' => 'show']);
     });
 });
 

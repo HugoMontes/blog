@@ -22,7 +22,7 @@
 
                         {!! Form::open(['route' => ['categories.destroy', $category], 'method' => 'DELETE']) !!}
                             {!! Form::submit('Eliminar', ['class' => 'btn btn-danger btn-xs', 'style' => 'margin-left: 1em',
-                                'onClick' => "return confirm('¿Estas seguro de eliminar la categoría?')"]) !!}
+                                'onClick' => "return confirm('¿Estas seguro de eliminar la categoría {$category->name}?')"]) !!}
                         {!! Form::close() !!}
                     </td>
                 </tr>
