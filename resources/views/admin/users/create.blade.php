@@ -21,7 +21,8 @@
 
         <div class="form-group">
             {!! Form::label('type', 'Tipo de usuario') !!}
-            {!! Form::select('type', ['' =>'-------', 'member' => 'Miembro', 'admin' => 'Administrador'], null, ['class' => 'form-control']) !!}
+            {!! Form::select('type', ['member' => 'Miembro', 'admin' => 'Administrador'], null,
+                ['class' => 'form-control', 'placeholder' => 'Seleccione una opción', 'required']) !!}
         </div>
 
         {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
