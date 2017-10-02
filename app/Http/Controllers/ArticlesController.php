@@ -38,7 +38,7 @@ class ArticlesController extends Controller
             'title' => 'min:8|max:250|required|unique:articles',
             'category_id' => 'required',
             'content' => 'min:60|required',
-            'image' => 'required',
+            'image' => 'required|image|mimes:jpeg,png|max:30',
         ]);
 
         if ($request->file('image')) {
@@ -79,6 +79,12 @@ class ArticlesController extends Controller
 
     public function update(Request $request, Article $article)
     {
+        $request->validate([
+            'title' => 'min:8|max:250|required|unique:articles',
+            'category_id' => 'required',
+            'content' => 'min:60|required',
+        ]);
+
         $article->fill($request->all());
         $article->save();
 

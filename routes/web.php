@@ -10,6 +10,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('categories', 'CategoryController', ['except' => 'show']);
         Route::resource('tags', 'TagController', ['except' => 'show']);
         Route::resource('articles', 'ArticlesController', ['except' => 'show']);
+        Route::get('images', 'ImageController@index')->name('images.index');
     });
 });
 
