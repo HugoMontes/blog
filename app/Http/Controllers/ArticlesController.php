@@ -63,4 +63,38 @@ class ArticlesController extends Controller
 
         return redirect()->route('articles.index');
     }
+
+    public function edit(Article $article)
+    {
+        $categories = Category::orderBy('name', 'DESC')->pluck('name', 'id');
+        $tags = Tag::orderBy('name', 'DESC')->pluck('name', 'id');
+        $tagsOriginal = $article->tags->pluck('id')->ToArray();
+
+        return view('admin.articles.edit')
+            ->with('categories', $categories)
+            ->with('tags', $tags)
+            ->with('tagsOriginal', $tagsOriginal)
+            ->with('article', $article);
+    }
+
+    public function update(Request $request, Article $article)
+    {
+        $article->fill($request->all());
+        $article->save();
+
+        $article->tags()->sync($request->tags);
+
+        flash("El artículo se actualizó con éxito.")->success()->important();
+
+        return redirect()->route('articles.index');
+    }
+
+    public function destroy(Article $article)
+    {
+        $article->delete();
+
+        flash("El Artículo '$article->title' ha sido eliminado con éxito.")->success()->important();
+
+        return redirect()->route('articles.index');
+    }
 }
