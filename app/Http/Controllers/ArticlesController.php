@@ -10,9 +10,16 @@ use App\Image;
 
 class ArticlesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.articles.index');
+        $articles = Article::search($request->title)->orderBy('id', 'DESC')->paginate(5);
+
+        $articles->each(function($articles) {
+            $articles->category;
+            $articles->user;
+        });
+
+        return view('admin.articles.index')->with('articles', $articles);
     }
 
     public function create()
