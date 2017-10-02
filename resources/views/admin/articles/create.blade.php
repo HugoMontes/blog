@@ -18,7 +18,7 @@
 
         <div class="form-group">
             {!! Form::label('content', 'Contenido') !!}
-            {!! Form::textarea('content', null, ['class' => 'form-control',
+            {!! Form::textarea('content', null, ['class' => 'form-control textarea-content',
                 'placeholder' => 'Contenido del artículo', 'required']) !!}
         </div>
 
@@ -45,5 +45,9 @@
         });
 
         $(".select-category").chosen({});
+
+        $('.textarea-content').trumbowyg({
+            lang: 'es'
+        });
     </script>
 @endsection
