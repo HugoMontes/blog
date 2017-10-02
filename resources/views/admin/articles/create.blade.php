@@ -12,7 +12,7 @@
 
         <div class="form-group">
             {!! Form::label('category_id', 'Categoría') !!}
-            {!! Form::select('category_id', $categories, null, ['class' => 'form-control',
+            {!! Form::select('category_id', $categories, null, ['class' => 'form-control select-category',
                 'placeholder' => 'Seleccione una opción', 'required']) !!}
         </div>
 
@@ -24,7 +24,7 @@
 
         <div class="form-group">
             {!! Form::label('tags', 'Tags') !!}
-            {!! Form::select('tags[]', $tags, null, ['class' => 'form-control', 'multiple', 'required']) !!}
+            {!! Form::select('tags[]', $tags, null, ['class' => 'form-control select-tag', 'multiple', 'required']) !!}
         </div>
 
         <div class="form-group">
@@ -34,4 +34,16 @@
 
         {!! Form::submit('Agregar artículo', ['class' => 'btn btn-primary']) !!}
     {!! Form::close() !!}
+@endsection
+
+@section('js')
+    <script>
+        $(".select-tag").chosen({
+            disable_search_threshold: 3,
+            placeholder_text_multiple: 'Seleccione un máximo de tres tasgs',
+            max_selected_options: 3,
+        });
+
+        $(".select-category").chosen({});
+    </script>
 @endsection
