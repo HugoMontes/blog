@@ -8,7 +8,7 @@ Route::get('articles/{slug}', 'FrontController@viewArticle')->name('view.article
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
-        Route::resource('users', 'UserController', ['except' => 'show']);
+        Route::resource('users', 'UserController', ['except' => 'show'])->middleware('admin');
         Route::resource('categories', 'CategoryController', ['except' => 'show']);
         Route::resource('tags', 'TagController', ['except' => 'show']);
         Route::resource('articles', 'ArticlesController', ['except' => 'show']);

@@ -5,7 +5,9 @@
             <ul class="nav navbar-nav">
                 <li><a href="{{ url('/') }}">Inicio</a></li>
                 @auth
-                    <li><a href="{{ route('users.index') }}">Usuarios</a></li>
+                    @if (Auth::user()->admin())
+                        <li><a href="{{ route('users.index') }}">Usuarios</a></li>
+                    @endif
                     <li><a href="{{ route('categories.index') }}">Categorías</a></li>
                     <li><a href="{{ route('articles.index') }}">Artículos</a></li>
                     <li><a href="{{ route('images.index') }}">Imágenes</a></li>
