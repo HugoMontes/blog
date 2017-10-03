@@ -1,7 +1,5 @@
 @extends('front.template.main')
 
-@section('title', 'Artículos')
-
 @section('content')
     <div class="blog-header">
         <h1 class="blog-title">Laravel news</h1>
@@ -17,9 +15,8 @@
                       <span>{{ $article->category->name }}</span> - {{ $article->created_at->diffForHumans() }}
                     </p>
                     @foreach ($article->images as $image)
-                        <img src="{{ asset("images/articles/{$image->name}") }}" class="img-responsive"></img>
+                        <img src="{{ asset('images/articles/'.$image->name) }}" class="img-responsive"></img>
                     @endforeach
-                    {{-- <div>{{ $article->content }}</div> --}}
                 </div><!-- /.blog-post -->
             @endforeach
             <div class="text-center">
@@ -28,28 +25,11 @@
         </div><!-- /.blog-main -->
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module">
-            <h4>Categorías</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">Framework</a></li>
-              <li><a href="#">Programación</a></li>
-              <li><a href="#">Noticias</a></li>
-            </ol>
-          </div>
-          <div class="sidebar-module">
-            <h4>Tags</h4>
-            <ol class="list-unstyled">
-              <li><a href="#">PHP</a></li>
-              <li><a href="#">Laravel</a></li>
-            </ol>
-          </div>
+            @include('front.template.partials.aside')
         </div><!-- /.blog-sidebar -->
     </div><!-- /.row -->
 
     <footer class="blog-footer">
-      <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-      <p>
-        <a href="#">Back to top</a>
-      </p>
+        <div class="panel-footer">Todos los derechos reservados © 2017</div>
     </footer>
 @endsection
