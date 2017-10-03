@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('front.index', function ($view) {
+        view()->composer(['front.index', 'front.article'], function ($view) {
             $view->with('categories', \App\Category::all());
             $view->with('tags', \App\Tag::all());
         });

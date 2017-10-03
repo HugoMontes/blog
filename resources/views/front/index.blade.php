@@ -10,13 +10,19 @@
         <div class="col-sm-8 blog-main">
             @foreach ($articles as $article)
                 <div class="blog-post">
-                    <h2 class="blog-post-title">{{ $article->title }}</h2>
+                    <a href="{{ route('view.article', $article->slug) }}">
+                        <h2 class="blog-post-title">{{ $article->title }}</h2>
+                    </a>
+
                     <p class="blog-post-meta">
                       <span>{{ $article->category->name }}</span> - {{ $article->created_at->diffForHumans() }}
                     </p>
-                    @foreach ($article->images as $image)
-                        <img src="{{ asset('images/articles/'.$image->name) }}" class="img-responsive"></img>
-                    @endforeach
+
+                    <a href="{{ route('view.article', $article->slug) }}">
+                        @foreach ($article->images as $image)
+                            <img src="{{ asset('images/articles/'.$image->name) }}" class="img-responsive"></img>
+                        @endforeach
+                    </a>
                 </div><!-- /.blog-post -->
             @endforeach
             <div class="text-center">
