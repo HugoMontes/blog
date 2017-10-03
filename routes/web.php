@@ -1,6 +1,8 @@
 <?php
 
 Route::get('/', 'FrontController@index');
+Route::get('categories/{category}', 'FrontController@searchCategory')->name('search.category');
+Route::get('tags/{tag}', 'FrontController@searchTag')->name('search.tag');
 
 Route::middleware('auth')->group(function () {
     Route::prefix('admin')->group(function () {

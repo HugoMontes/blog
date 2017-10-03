@@ -3,7 +3,12 @@
 
     <ol class="list-unstyled">
         @foreach($categories as $category)
-            <li>{{ $category->name }}  <span class="badge">{{ $category->articles->count() }}</span></li>
+            @if($category->articles->count())
+                <li>
+                    <a href="{{ route('search.category', $category) }}"> {{ $category->name }} </a>
+                    <span class="badge">{{ $category->articles->count() }}</span>
+                </li>
+            @endif
         @endforeach
     </ol>
 </div>
@@ -13,7 +18,11 @@
 
     <ol class="list-unstyled">
         @foreach($tags as $tag)
-            <li>{{ $tag->name }}</li>
+            @if($tag->articles->count())
+                <li>
+                    <a href="{{ route('search.tag', $tag) }}"> {{ $tag->name }} </a>
+                </li>
+            @endif
         @endforeach
     </ol>
 </div>
